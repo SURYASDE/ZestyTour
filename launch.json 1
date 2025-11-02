@@ -1,0 +1,67 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Backend (Node.js)",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/backend/server.js",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "console": "integratedTerminal",
+            "env": {
+                "NODE_ENV": "development"
+            }
+        },
+        {
+            "name": "Attach to Backend",
+            "type": "node",
+            "request": "attach",
+            "port": 9229,
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Launch Frontend (Edge)",
+            "type": "msedge",
+            "request": "launch",
+            "url": "http://localhost:8000/frontend/index.html",
+            "webRoot": "${workspaceFolder}",
+            "userDataDir": false
+        },
+        {
+            "name": "Attach to Frontend (Edge)",
+            "type": "msedge",
+            "request": "attach",
+            "port": 9222,
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Launch Frontend (Chrome)",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:8000/frontend/index.html",
+            "webRoot": "${workspaceFolder}",
+            "userDataDir": false
+        },
+        {
+            "name": "Attach to Frontend (Chrome)",
+            "type": "chrome",
+            "request": "attach",
+            "port": 9222,
+            "webRoot": "${workspaceFolder}"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Launch Full Stack",
+            "configurations": [
+                "Launch Backend (Node.js)",
+                "Launch Frontend (Edge)"
+            ]
+        }
+    ]
+}
